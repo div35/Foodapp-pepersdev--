@@ -1,0 +1,22 @@
+#navbar
+  a.h2(href='/') PepersDev.Co
+  ul
+    li
+      a.fd(href='/#middle2') How It Works
+    li
+      a.fd(href='/cities') Our Cities
+    li
+      a.fd(href='./review') Testemony
+    
+    if temp_user
+      li 
+        a.fd(href="/mepage") About Me
+      li
+       a.fd.logout(href='#') LogOut
+    else
+     li
+      a.fd(href='/login') Log In  
+     li
+      a.fd(href='/signup') Sign Up
+     
+

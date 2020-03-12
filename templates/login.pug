@@ -1,0 +1,32 @@
+extend base
+
+block content
+    #login
+        br
+        br
+        #space
+            br
+            h1 Log In
+            .signup
+                h5 New to this website | 
+                a.sign(href="/signup") Signup For Free
+
+            form#loginform
+                .email
+                    .entry
+                        .entry-text
+                            | Email :
+                        input(type='email' ,name='email' ,placeholder='  Your Email',id="email" ,required=true)
+
+                .password
+                    .entry
+                        .entry-text
+                            | Password : 
+                        input(type='password' ,name='password', placeholder='  Your Password' ,id="password",required=true )
+                br
+                button(type='submit') Log In
+            a.forget(href="/forgetpassword") Forget Password ?
+            br
+            br
+        br
+        br

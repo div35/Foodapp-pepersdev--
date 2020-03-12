@@ -1,0 +1,36 @@
+#middle5
+    br
+    br
+    h2.subheading START EATING HEALTHY TODAY
+
+    part
+        for plan in plans
+            part5
+                part1
+                    h2 #{plan.name}
+                    part3
+                        h1(style='color: rgb(8, 187, 8) ') #{plan.price}
+                        p(style='color: rgb(8, 187, 8) ')  /month
+                    p(style='margin-bottom:0.8rem; font-size:110%;') That&apos;s only #{plan.avgprice}$ per meal
+                    hr
+                    part2
+                        part4
+                            i.fas.fa-check-circle
+                            p 1 meal every day
+                        part4
+                            i.fas.fa-check-circle
+                            p Order 24/7
+                        part4
+                            i.fas.fa-check-circle
+                            p Access to newest creation
+                        part4
+                            i.fas.fa-check-circle
+                            p Free delivery
+                        hr
+                .hi
+                if temp_user
+                    button.a3.bookPlan(value='#{plan.price}' onClick="window.location.href='#plan-booking'" data-plan-id = `${plan["_id"]}`) Buy Now
+                else
+                    button.a3(onClick="window.location.href='/login'") Log In
+        if(x == 3)             
+            a.seemore(href="/plans") See More

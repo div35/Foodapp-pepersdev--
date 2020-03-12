@@ -1,0 +1,62 @@
+extend base
+//- block content
+//-     form.form.form-user-data
+//-       .form__group
+//-         label.form__label(for='name') Name
+//-         input#name.form__input(type='text', value=`${user.Name}`, required, name='name')
+//-       .form__group.ma-bt-md
+//-         label.form__label(for='email') Email address
+//-         input#email.form__input(type='email', value=`${user.email}`, required, name='email')
+//-       .form__group.form__photo-upload
+//-         img.form__user-photo(src=`/img/users/`, alt='User photo')
+//-         a.btn-text(href='') Choose new photo
+//-       .form__group.right
+//-         button.btn.btn--small.btn--green Save settings          
+//-     .line &nbsp;
+//-     .user-view__form-container
+//-       h2.heading-secondary.ma-bt-md Password change
+//-       form.form.form-user-password
+//-         .form__group
+//-           label.form__label(for='password-current') Current password
+//-           input#password-current.form__input(type='password' placeholder='••••••••', required, minlength='8')
+//-         .form__group
+//-           label.form__label(for='password') New password
+//-           input#password.form__input(type='password' placeholder='••••••••', required,name="password" minlength='8')
+//-         .form__group.ma-bt-lg
+//-           label.form__label(for='password-confirm') Confirm password
+//-           input#password-confirm.form__input(type='password' placeholder='••••••••', required, minlength='8')
+//-         .form__group.right
+//-           button.btn.btn--small.btn--green.btn--save-password Save password
+block content
+  #login
+    br
+    br
+    #space1
+      br
+      br
+      h1 Change Password Here
+      br
+      br
+      form.change_pass
+        .password1
+          .entry
+            .entry-text
+              | Old Password : 
+            input(type='password' ,name='old password' placeholder='  Your Old Password' , id = "old password" ,required=true )
+
+        .password1
+          .entry
+            .entry-text
+              | New Password : 
+            input(type='password' ,name='new password' placeholder='  Your New Password' , id = "new password" ,required=true )
+
+        .confirm_pass
+          .entry
+            .entry-text
+              | Confirm Password : 
+            input(type='password' ,name='confirm_pass' placeholder='  Confirm Your Password' , id = "confirm_pass" ,required=true )
+
+        br
+        button(type='submit') Save
+    br
+    br
