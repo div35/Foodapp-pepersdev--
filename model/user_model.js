@@ -5,7 +5,9 @@ const bcrypt = require("bcrypt");
 const crypto = require("crypto");
 //request
 mongoose.connect(db, {
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true
 })
 
 //database

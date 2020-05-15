@@ -7,12 +7,12 @@ module.exports.loginuser = async (req, res) => {
     try {
         // console.log(req.body);
         if (req.body.email == undefined || req.body.password == undefined) {
-            res.status(401).send("ENTER PROPERLY !!!");
+            res.status(201).send("ENTER PROPERLY !!!");
         }
         else {
             let result = await user.findOne({ email: req.body.email });
             if (!result) {
-                res.status(401).send("Please enter a valid email id");
+                res.status(201).send("Please enter a valid email id");
                 return;
             }
 

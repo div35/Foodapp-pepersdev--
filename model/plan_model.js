@@ -3,7 +3,8 @@ const db = "mongodb+srv://admin:123abc@cluster0-fm3f2.mongodb.net/test?retryWrit
 //request
 mongoose.connect(db, {
     useNewUrlParser: true,
-    useCreateIndex: true
+    useCreateIndex: true,
+    useUnifiedTopology: true
 });
 
 //database
