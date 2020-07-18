@@ -6,7 +6,7 @@ module.exports.send_email = (options) => {
           host: "smtp.gmail.com",
           auth: {
             user: "paprejadivyansh@gmail.com",
-            pass: "xxabnstpplvrjose"
+            pass: "pelvzurijypzbsja"
           }
         });
 
