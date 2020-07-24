@@ -3,6 +3,7 @@ var {viewhomepage , viewbasepage , viewloginpage , viewplanpage , viewsignuppage
 var { isloggedin , protectroute} = require("../controller/auth_controller");
 
 let viewrouter = express.Router();
+
 //will run for all the cases
 viewrouter.use(isloggedin);
 //next()

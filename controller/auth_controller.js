@@ -64,6 +64,13 @@ module.exports.signupuser = async (req, res) => {
 
         var token = jwt.sign({ "id": newobj._id }, "div123", { expiresIn: "10d" });
         res.cookie("jwt", token, { httpOnly: true });
+
+        send_email({
+            to: req.body.email,
+            subject: "Successfully Signed Up",
+            text: "Congratulation !! You have successfully signed up in PepersDev.co."
+        });
+
         res.status(200).send("You Signedup Successfully");
     }
     catch (err) {
@@ -188,8 +195,13 @@ module.exports.forgetpassword = async (req, res) => {
     }
 
     // 3. generate a random token using crypto
-    let token = chk.create_reset_token();
-    await chk.save({ validatebeforesave: false });
+    // let token = chk.create_reset_token();
+    // await chk.save({ validatebeforesave: false });
+
+    let token = crypto.randomBytes(32).toString("hex");
+    // console.log(token);
+
+    await user.findByIdAndUpdate(chk._id, { "reset_token": token }, { new: true });
     // console.log(token);
 
     // 4. send email to the user having the random token using mailtrap
@@ -197,7 +209,7 @@ module.exports.forgetpassword = async (req, res) => {
         send_email({
             to: chk.email,
             subject: "token to reset password",
-            text: "Go to http://localhost:3000/resetpassword and enter the token \n Token is : " + token 
+            text: "Token is : " + token 
         });
         res.send("Token was sent successfully to you email address");
     } catch (err) {

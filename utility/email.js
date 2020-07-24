@@ -1,12 +1,12 @@
 var nodemailer = require("nodemailer");
-
+var {email , password} = require("./../credential")
 module.exports.send_email = (options) => {
       var transporter = nodemailer.createTransport({
           service:"gmail",
           host: "smtp.gmail.com",
           auth: {
-            user: "paprejadivyansh@gmail.com",
-            pass: "pelvzurijypzbsja"
+            user: email,
+            pass: password
           }
         });
 
