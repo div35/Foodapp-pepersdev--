@@ -18,11 +18,20 @@ block content
                             | Name : 
                         input(type='text' ,name='name' ,placeholder='  Your Name' ,id = "name" , required=true)
 
+                //- .role
+                //-     .entry
+                //-         .entry-text
+                //-             | Role : 
+                //-         input(type='text' ,name='role' ,placeholder='  Your Role eg. Admin or User' , id = "role" ,required=true)
+
                 .role
                     .entry
                         .entry-text
                             | Role : 
-                        input(type='text' ,name='role' ,placeholder='  Your Role' , id = "role" ,required=true)
+                        select(type='text' , name='role' , id = "role" ,required=true)
+                            option(value='' , name="") Select
+                            option(value="user") User
+                            option(value="admin") Admin
 
                 .username
                     .entry

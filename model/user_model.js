@@ -1,11 +1,8 @@
 const mongoose = require("mongoose");// Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment.
-// const { db_link } = require("./../credential")
+const {db} = require("./../credential")
 const validator = require("validator");
 const bcrypt = require("bcrypt");
 
-// const db = db_link;
-
-const db = "mongodb+srv://admin:123abc@cluster0-fm3f2.mongodb.net/test?retryWrites=true&w=majority";
 //request
 mongoose.connect(db, {
     useNewUrlParser: true,
@@ -19,7 +16,7 @@ mongoose.connect(db, {
 const userschema = new mongoose.Schema({
     //type
     name: { type: String, required: true, validate: validator.isAlpha },
-    role: { type: String, enum: ["admin", "owner", "user"] },
+    role: { type: String, enum: ["admin", "user"] },
     username: { type: String, required: true },
     email: { type: String, required: true, unique: true, validate: validator.isEmail },
     password: { type: String, required: true },
@@ -34,7 +31,6 @@ const userschema = new mongoose.Schema({
         avgprice: { type: String }
     },
     reset_token: { type: String }
-
 });
 
 //pre

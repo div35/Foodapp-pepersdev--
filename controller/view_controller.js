@@ -62,3 +62,15 @@ module.exports.viewreviewpage = async (req , res) => {
 module.exports.viewchangepasspage = async (req , res) => {
     res.status(201).render("change_pass.pug");
 }
+
+module.exports.payment_successfulpage = (req , res) => {
+    res.status(201).render("payment_successful.pug", {
+        title: "Payment Successful"
+    })
+}
+
+module.exports.payment_unsuccessfulpage = (req , res) => {
+    res.status(201).render("payment_failed.pug", {
+        title: "Payment Unsuccessful"
+    })
+}

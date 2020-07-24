@@ -15,7 +15,7 @@ server.use(express.static("public"));
 
 const limiter = ratelimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 10 // limit each IP to some requests per windowMs
+    max: 100 // limit each IP to some requests per windowMs
 });
 
 server.use(express.urlencoded({extended : true})); //method inbuilt in express to recognize the incoming Request Object as strings or arrays.

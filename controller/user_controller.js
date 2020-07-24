@@ -30,16 +30,17 @@ module.exports.getuser = async function (req, res) {
     }
 };
 
-module.exports.postuser = async function (req, res) {
-    try {
-        console.log(req.body);
-        await user.create(req.body);
-        res.status(200).send("DONE");
-    }
-    catch (err) {
-        res.status(401).send(err);
-    };
-};
+// module.exports.postuser = async function (req, res) {
+//     try {
+//         console.log(req.body);
+//         await user.create(req.body);
+//         res.status(200).send("DONE");
+//     }
+//     catch (err) {
+//         res.status(401).send(err);
+//     };
+// };
+
 module.exports.patchuser = async function (req, res) {
     try {
         var id = req.user["_id"]||req.params.id;

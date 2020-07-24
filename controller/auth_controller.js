@@ -54,12 +54,23 @@ module.exports.signupuser = async (req, res) => {
     //   3. create token using jsonwebtoken
     //   4. response to user
 
+    // console.log(req.body);
     if (req.body.email == undefined || req.body.password == undefined) {
-        res.status(401).send("ENTER PROPERLY !!!");
+        res.status(200).send("ENTER PROPERLY !!!");
     }
 
     try {
-        // console.log(req.body);
+        let temp = await user.findOne({ email: req.body.email });
+        if (temp) {
+            res.status(201).send("An account already exsits with this email id.");
+            return;
+        }
+        
+        if(req.body.password !== req.body.confirm_pass){
+            res.status(201).send("Your Password doesn't match with Confirm Password");
+            return;
+        }
+        
         var newobj = await user.create(req.body);
 
         var token = jwt.sign({ "id": newobj._id }, "div123", { expiresIn: "10d" });
@@ -209,7 +220,7 @@ module.exports.forgetpassword = async (req, res) => {
         send_email({
             to: chk.email,
             subject: "token to reset password",
-            text: "Token is : " + token 
+            text: "Token is : " + token
         });
         res.send("Token was sent successfully to you email address");
     } catch (err) {
@@ -259,7 +270,7 @@ module.exports.changepass = async (req, res) => {
                 res.status(201).send("Password is wrong");
                 return;
             }
-            
+
             result.password = req.body.newpass;
             result.confirm_pass = req.body.confirm_pass;
             var temp = await result.save();

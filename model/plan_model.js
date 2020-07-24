@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-const db = "mongodb+srv://admin:123abc@cluster0-fm3f2.mongodb.net/test?retryWrites=true&w=majority";
+const {db} = require("./../credential")
+
 //request
 mongoose.connect(db, {
     useNewUrlParser: true,

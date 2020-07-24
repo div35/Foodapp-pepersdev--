@@ -1,5 +1,5 @@
 var nodemailer = require("nodemailer");
-var {email , password} = require("./../credential")
+const {email , password} = require("./../credential");
 module.exports.send_email = (options) => {
       var transporter = nodemailer.createTransport({
           service:"gmail",
@@ -11,7 +11,7 @@ module.exports.send_email = (options) => {
         });
 
         var mail = {
-          from: "paprejadivyansh@gmail.com",
+          from: "PepersDev.co",
           to: options.to,
           subject: options.subject,
           text: options.text

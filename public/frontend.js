@@ -65,7 +65,6 @@ const reset = async (token, password) => {
     try {
         const data = { token, password };
         const res = await axios.patch("/api/user/resetpassword", data);
-        console.log(res)
         if (res.data === "Password changes succesfully") {
             alert("Password changes succesfully")
             window.setTimeout(() => {
@@ -83,7 +82,6 @@ const forgetpass = async (email) => {
     try {
         const data = { email };
         const res = await axios.post("/api/user/forgetpassword", data);
-        console.log(res)
         if (res.data === "Token was sent successfully to you email address") {
             alert("Token was sent successfully to you email address")
             window.setTimeout(() => {
@@ -101,7 +99,6 @@ const sign = async (name, role, username, email, password, confirm_pass) => {
     try {
         const data = { name, role, username, email, password, confirm_pass };
         const res = await axios.post("/api/user/signup", data);
-        // console.log(res)
         if (res.data === "You Signedup Successfully") {
             alert("You Signedup Successfully")
             window.setTimeout(() => {
@@ -109,7 +106,7 @@ const sign = async (name, role, username, email, password, confirm_pass) => {
             }, 1000)
         }
         else {
-            alert("Error");
+            alert(res.data);
         }
     } catch (err) {
         console.log(err);
@@ -119,7 +116,6 @@ const change = async (oldpass, newpass, confirm_pass) => {
     try {
         const data = { oldpass, newpass, confirm_pass };
         const res = await axios.patch("/api/user/changepass", data);
-        console.log(res);
         if (res.data === "Password changes succesfully") {
             alert("Password changes succesfully")
             window.setTimeout(() => {
@@ -139,7 +135,6 @@ const change = async (oldpass, newpass, confirm_pass) => {
 const bookPlan = async planId => {
     try{
         const session = await axios(`http://localhost:3000/api/bookings/checkout-session/${planId}`);
-        console.log(session);
         await stripe.redirectToCheckout({
             sessionId : session.data.session.id
         });
