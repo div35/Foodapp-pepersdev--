@@ -1,6 +1,6 @@
 var express = require("express");
-var {viewhomepage , viewbasepage , viewloginpage , viewplanpage , viewsignuppage , viewforgetpage , viewreviewpage , viewresetpage , viewchangepasspage , viewcitiespage, viewmepage , payment_successfulpage , payment_unsuccessfulpage} = require("./../controller/view_controller");
-var { isloggedin , protectroute} = require("../controller/auth_controller");
+var { viewhomepage, viewbasepage, viewloginpage, viewplanpage, viewsignuppage, viewforgetpage, viewreviewpage, viewresetpage, viewchangepasspage, viewcitiespage, viewmepage, payment_successfulpage, payment_unsuccessfulpage, viewwishlistpage } = require("./../controller/view_controller");
+var { isloggedin, protectroute } = require("../controller/auth_controller");
 
 let viewrouter = express.Router();
 
@@ -14,12 +14,14 @@ viewrouter.route("/plans").get(viewplanpage)
 viewrouter.route("/signup").get(viewsignuppage)
 viewrouter.route("/forgetpassword").get(viewforgetpage)
 viewrouter.route("/resetpassword").get(viewresetpage)
-viewrouter.route("/mepage").get(protectroute,viewmepage);
+viewrouter.route("/mepage").get(protectroute, viewmepage);
 viewrouter.route("/cities").get(viewcitiespage);
 viewrouter.route("/review").get(viewreviewpage);
-viewrouter.route("/changepassword").get(protectroute,viewchangepasspage);
-viewrouter.route("/success").get(protectroute,payment_successfulpage);
-viewrouter.route("/failed").get(protectroute,payment_unsuccessfulpage);
+viewrouter.route("/changepassword").get(protectroute, viewchangepasspage);
+viewrouter.route("/success").get(protectroute, payment_successfulpage);
+viewrouter.route("/failed").get(protectroute, payment_unsuccessfulpage);
+viewrouter.route("/wishlist").get(protectroute, viewwishlistpage);
+
 
 
 module.exports = viewrouter;

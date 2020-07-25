@@ -25,11 +25,11 @@ const userschema = new mongoose.Schema({
             return this.confirm_pass === this.password;
         }
     },
-    prevOrder: {
+    wish_list: [{
         name: { type: String },
         price: { type: String },
         avgprice: { type: String }
-    },
+    }],
     reset_token: { type: String }
 });
 

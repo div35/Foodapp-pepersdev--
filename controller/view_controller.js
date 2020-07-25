@@ -74,3 +74,9 @@ module.exports.payment_unsuccessfulpage = (req , res) => {
         title: "Payment Unsuccessful"
     })
 }
+
+module.exports.viewwishlistpage = (req , res) => {
+    res.status(201).render("wishlist_page.pug", {
+        title: "Wishlist Page"
+    })
+}

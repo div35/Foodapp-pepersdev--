@@ -22,7 +22,8 @@ module.exports.getcheckout = async (req, res) => {
     });
 
     // response
-    res.status(201).json({status:"Payment Successful for " + curr_plan.name , 
-    session
+    res.status(201).json({
+        status: "Payment Successful for " + curr_plan.name,
+        session
     })
 }

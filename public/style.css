@@ -27,7 +27,7 @@ ul img {
   list-style-type: none;
   justify-content: flex-end;
   display: flex;
-  padding: 2rem;
+  padding: 1rem;
   background-attachment: fixed;
 }
 
@@ -39,18 +39,18 @@ ul img {
 #navbar .h2 {
   text-decoration: none;
   color: white;
-  font-weight: 100;
+  font-weight: 90;
   font-size: 25px;
-  margin-right: 45rem;
+  margin-right: 44rem;
   margin-left: 2rem;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 .fd {
   color: white;
   margin: 12px;
   font-weight: 100;
-  font-size: 15px;
+  font-size: 17px;
   text-decoration: none;
   transition: 0.3s;
   padding-bottom: 1rem;
@@ -341,7 +341,7 @@ section3 {
   font-size: 290%;
 }
 
-#middle5 i {
+#middle5 part4 i {
   font-size: 15px;
   margin-left: -0.2rem;
   margin-top: 0.6rem;
@@ -364,7 +364,8 @@ section3 {
   text-decoration: none;
   background-color: white;
   transition: 0.3s;
-  margin-left: 6rem;
+  margin: 4px;
+  margin-left: 8px;
 }
 
 #middle5 .a3:hover {
@@ -419,7 +420,6 @@ section3 {
   padding-left: 1.5rem;
   border-color: rgb(10, 10, 10);
 }
-
 
 #middle6 input[type="checkbox"] {
   margin-right: 0.5rem;
@@ -612,7 +612,8 @@ footer #a1 .at:hover {
   margin-top: 3rem;
 }
 
-input , select {
+input,
+select {
   margin: 1rem;
   height: 3rem;
   width: 25rem;
@@ -687,10 +688,10 @@ input , select {
   margin-left: 22rem;
 }
 
-#payment{
-    display: flex;
-    margin: 2rem;
-    margin-bottom: 16rem;
+#payment {
+  display: flex;
+  margin: 2rem;
+  margin-bottom: 16rem;
 }
 
 .continue {
@@ -698,15 +699,37 @@ input , select {
   margin-left: 29rem;
 }
 
-#failed{
-    margin-left: 15rem;
+#failed {
+  margin-left: 15rem;
 }
 
-#failed button{
-    background-color: rgb(194, 20, 20);
-    margin-left:30rem;
+#failed button {
+  background-color: rgb(194, 20, 20);
+  margin-left: 30rem;
 }
 
-#failed i{
-    color: rgb(194, 20, 20);
+#failed i {
+  color: rgb(194, 20, 20);
+}
+
+li .me,
+li .wishlist {
+  margin: 0rem;
+  font-size: 30px;
+  color: gray;
+  padding-bottom: 0.5rem;
+}
+
+.space{
+  height:26%;
+  margin: 5rem;
+  margin-left: 37rem;
+}
+
+.hi #unwishlist{
+  margin-left: 1rem;
+}
+
+.hi #unwishbook{
+  margin-left: 4rem;
 }

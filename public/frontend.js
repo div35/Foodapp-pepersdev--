@@ -7,6 +7,11 @@ const forget = document.querySelector(".forgot");
 const signup = document.querySelector(".signed");
 const changepass = document.querySelector(".change_pass");
 const bookbtn = document.querySelectorAll(".bookPlan");
+const add_order = document.querySelector("#add_order .continue");
+const wishlistBtn = document.querySelectorAll("#wishlist");
+const unwishlistBtn = document.querySelectorAll("#unwishlist");
+
+var globalId;
 
 const login = async (email, password) => {
     // alert("Email : " + email + " & " + "Password : " + password);
@@ -133,15 +138,40 @@ const change = async (oldpass, newpass, confirm_pass) => {
 }
 
 const bookPlan = async planId => {
-    try{
+    try {
         const session = await axios(`http://localhost:3000/api/bookings/checkout-session/${planId}`);
         await stripe.redirectToCheckout({
-            sessionId : session.data.session.id
+            sessionId: session.data.session.id
         });
-    } catch(err){
+    } catch (err) {
         console.log(err);
     }
 };
+
+const add_to_wishlist = async planId => {
+    try{
+        const res = await axios.patch("http://localhost:3000/api/user/wishlist" , {"planId":planId});
+        
+        alert(res.data);
+        if(res.data === "This Product is Successfully added to your Wishlist")
+        location.assign("/wishlist");
+    }
+    catch(err){
+        console.log(err);
+    }
+}
+
+const delete_from_wishlist = async planId => {
+    try{
+        const res = await axios.patch("http://localhost:3000/api/user/unwishlist" , {"planId":planId});
+        
+        alert(res.data);
+        location.assign("/wishlist");
+    }
+    catch(err){
+        console.log(err);
+    }
+}
 
 if (logoutbutton) {
     logoutbutton.addEventListener("click", logout);
@@ -202,13 +232,40 @@ if (changepass) {
     })
 }
 
-if(bookbtn){
+if (bookbtn) {
     // console.log(bookbtn);
-    for(let i=0;i<bookbtn.length;i++)
-    {
-        bookbtn[i].addEventListener("click" , e => {
+    for (let i = 0; i < bookbtn.length; i++) {
+        bookbtn[i].addEventListener("click", e => {
             let planId = e.target.dataset.planId;
+            // globalId = planId;
             bookPlan(planId);
+        })
+    }
+}
+
+if (add_order) {
+    add_order.addEventListener("click", e => {
+        e.preventDefault();
+
+    })
+}
+
+if (wishlistBtn) {
+    for (let i = 0; i < wishlistBtn.length; i++) {
+        wishlistBtn[i].addEventListener("click", e => {
+            e.preventDefault();
+            let planId = e.target.dataset.planId;
+            add_to_wishlist(planId)
+        })
+    }
+}
+
+if (unwishlistBtn) {
+    for (let i = 0; i < unwishlistBtn.length; i++) {
+        unwishlistBtn[i].addEventListener("click", e => {
+            e.preventDefault();
+            let planId = e.target.dataset.planId;
+            delete_from_wishlist(planId)
         })
     }
 }
