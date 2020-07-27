@@ -27,7 +27,7 @@ ul img {
   list-style-type: none;
   justify-content: flex-end;
   display: flex;
-  padding: 1rem;
+  padding: 1.3rem;
   background-attachment: fixed;
 }
 
@@ -41,9 +41,9 @@ ul img {
   color: white;
   font-weight: 90;
   font-size: 25px;
-  margin-right: 44rem;
+  margin-right: 40rem;
   margin-left: 2rem;
-  margin-top: 1rem;
+  margin-top: 1.2rem;
 }
 
 .fd {

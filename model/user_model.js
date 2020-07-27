@@ -8,7 +8,13 @@ mongoose.connect(db, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true
-})
+}).then(function (db) {
+    // console.log(db);
+    console.log("UserDb connected");
+  })
+  .catch(function (err) {
+    console.log(err);
+  });
 
 //database
 //error handling
