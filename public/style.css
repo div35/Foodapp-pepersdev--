@@ -27,7 +27,7 @@ ul img {
   list-style-type: none;
   justify-content: flex-end;
   display: flex;
-  padding: 1.3rem;
+  padding: 1.2rem;
   background-attachment: fixed;
 }
 
@@ -41,7 +41,7 @@ ul img {
   color: white;
   font-weight: 90;
   font-size: 25px;
-  margin-right: 40rem;
+  margin-right: 42rem;
   margin-left: 2rem;
   margin-top: 1.2rem;
 }
@@ -338,7 +338,7 @@ section3 {
 
 #middle5 part3 h1 {
   font-weight: 200;
-  font-size: 290%;
+  font-size: 200%;
 }
 
 #middle5 part4 i {
@@ -380,8 +380,9 @@ section3 {
 }
 
 #middle5 part3 p {
-  margin-top: 1.7rem;
-  font-size: 110%;
+  margin-top: 0.6rem;
+  margin-left: 0.2rem;
+  font-size: 140%;
 }
 
 #middle5 part4 {
@@ -715,21 +716,82 @@ select {
 li .me,
 li .wishlist {
   margin: 0rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
   font-size: 30px;
   color: gray;
   padding-bottom: 0.5rem;
 }
 
-.space{
-  height:26%;
+.space {
+  height: 26%;
   margin: 5rem;
   margin-left: 37rem;
 }
 
-.hi #unwishlist{
+.hi #unwishlist {
   margin-left: 1rem;
 }
 
-.hi #unwishbook{
+.hi #unwishbook {
   margin-left: 4rem;
+}
+
+.orders {
+  height: 26%;
+  margin: 5rem;
+  margin-left: 33rem;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: rgb(185, 185, 185);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn .me:hover {
+  color: rgb(68, 207, 68);
+}
+
+a .wishlist:hover{
+  color: rgb(68, 207, 68);
+}
+
+part8{
+  display: flex;
+}
+
+part9 .items{
+  margin-bottom: 1rem;
+}
+
+.addmore{
+  text-decoration: none;
+  color: rgb(6, 153, 6);
+  margin-left: 70rem;
+  font-size: larger;
+  font-weight: bold;
 }

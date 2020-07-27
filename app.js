@@ -12,6 +12,8 @@ const server = express(); //Server is ready
 
 server.use(express.json()); //method inbuilt in express to recognize the incoming Request Object as a JSON Object.
 server.use(express.static("public"));
+server.use('/success', express.static('public'))
+server.use('/editplan', express.static('public'))
 
 const limiter = ratelimit({
     windowMs: 15 * 60 * 1000, // 15 minutes

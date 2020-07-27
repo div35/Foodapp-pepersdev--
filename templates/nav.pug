@@ -10,17 +10,21 @@
     
     if temp_user
       li 
-        a.fd(href="/wishlist") 
+        a(href="/wishlist") 
           i.wishlist.far.fa-heart
       li
-        a.fd(href="/mepage") 
-          i.me.far.fa-user-circle
+        .dropdown
+          .dropbtn
+            i.me.far.fa-user-circle
+          .dropdown-content
+            a.fd(href="/prevOrders") My Orders
+            a.fd(href="/mepage") About Me
       li
         a.fd.logout(href='#') LogOut
 
     else
       li 
-        a.fd(href="/wishlist") 
+        a(href="/wishlist") 
           i.wishlist.far.fa-heart
       li
         a.fd(href='/login') Log In  

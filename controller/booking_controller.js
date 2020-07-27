@@ -17,7 +17,7 @@ module.exports.getcheckout = async (req, res) => {
             currency: 'usd',
             quantity: 1,
         }],
-        success_url: 'http://localhost:3000/success',
+        success_url: 'http://localhost:3000/success/'+id,
         cancel_url: 'http://localhost:3000/failed',
     });
 

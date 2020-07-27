@@ -31,17 +31,6 @@ module.exports.getuser = async function (req, res) {
     }
 };
 
-// module.exports.postuser = async function (req, res) {
-//     try {
-//         console.log(req.body);
-//         await user.create(req.body);
-//         res.status(200).send("DONE");
-//     }
-//     catch (err) {
-//         res.status(401).send(err);
-//     };
-// };
-
 module.exports.patchuser = async function (req, res) {
     try {
         var id = req.user["_id"] || req.params.id;
@@ -59,6 +48,23 @@ module.exports.patchuser = async function (req, res) {
     }
 };
 
+module.exports.addToOrder = async function (req, res) {
+    try {
+        var plan_id = req.body.planId;
+        var temp_plan = await plan.findById(plan_id)
+        var user_detail = req.user;
+        var o_list = user_detail.wish_list;
+        
+        o_list.push(temp_plan)
+        var result = await user.findByIdAndUpdate(user_detail._id, { "prevOrder": o_list }, { new: true });
+        res.status(200).send("This Product is Successfully added to your OrdersList")
+    }
+    catch (err) {
+        res.status(401).send(err);
+    }
+}
+
+
 module.exports.wishlist = async function (req, res) {
     try {
         // console.log(req);
@@ -68,18 +74,18 @@ module.exports.wishlist = async function (req, res) {
         // console.log(temp_plan)
         var w_list = user_detail.wish_list;
         // console.log(w_list)
-        for(i=0;i<w_list.length;i++){
-            if(w_list[i].name === temp_plan.name){
+        for (i = 0; i < w_list.length; i++) {
+            if (w_list[i].name === temp_plan.name) {
                 res.status(200).send("This Product is Already added in your Wishlist")
                 return;
             }
         }
         w_list.push(temp_plan)
         // console.log(w_list)
-        var result = await user.findByIdAndUpdate(user_detail._id , {"wish_list" : w_list} , {new: true});
+        var result = await user.findByIdAndUpdate(user_detail._id, { "wish_list": w_list }, { new: true });
         res.status(200).send("This Product is Successfully added to your Wishlist")
     }
-    catch(err) {
+    catch (err) {
         res.status(401).send(err);
     }
 }
@@ -97,10 +103,10 @@ module.exports.unwishlist = async function (req, res) {
             return elem.name != temp_plan.name
         })
         // console.log(w_list)
-        var result = await user.findByIdAndUpdate(user_detail._id , {"wish_list" : w_list} , {new: true});
+        var result = await user.findByIdAndUpdate(user_detail._id, { "wish_list": w_list }, { new: true });
         res.status(200).send("This Product is Successfully delete from your Wishlist")
     }
-    catch(err) {
+    catch (err) {
         res.status(401).send(err);
     }
 }

@@ -53,7 +53,7 @@ module.exports.getallplan = async function (req, res) {
             result: result
         })
     }
-    catch(err){
+    catch (err) {
         res.status(400).send(err);
     }
 }
@@ -76,9 +76,8 @@ module.exports.getplan = async function (req, res) {
 
 module.exports.postplan = async function (req, res) {
     try {
-        // console.log(req.body);
         await plan.create(req.body);
-        res.status(200).send("DONE");
+        res.status(200).send("Plan Added Successfully");
     }
     catch (err) {
         res.status(401).send(err);
@@ -90,9 +89,23 @@ module.exports.patchplan = async function (req, res) {
         var id = req.params.id;
         var result = await plan.findById(id);
         var updatep = await plan.updateOne(result, req.body);
-        res.status(200).send("DONE");
+        res.status(200).send("Update is successful");
     }
     catch (err) {
         res.status(401).send(err);
     }
 };
+
+module.exports.deleteplan = async function (req, res) {
+    try {
+        var id = req.body.id || req.params.id;
+        var result = await plan.findByIdAndDelete(id);
+
+        if (result) {
+            res.status(200).send(result.name + " is Deleted From Database");
+        }
+    }
+    catch (err) {
+        res.status(401).send(err);
+    }
+}

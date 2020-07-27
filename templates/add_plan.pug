@@ -1,0 +1,42 @@
+extend base
+
+block content
+    #login
+        br
+        br
+        #space
+            br
+            h1 Add Thali
+            
+            form.addplan-view__content
+                .name
+                    .entry
+                        .entry-text
+                            | Thali Name : 
+                        input(type='text' ,name='name' ,id = 'name' , required=true)
+
+                .name
+                    .entry
+                        .entry-text
+                            | Items :
+                        input(type='text' ,name='items' ,id = 'items' , required=true)
+
+                .name
+                    .entry
+                        .entry-text
+                            | Serving :
+                        input(type='text' ,name='serving' ,id = 'serving' , required=true)
+
+                .name
+                    .entry
+                        .entry-text
+                            | Price :
+                        input(type='text' ,name='price' ,id = 'price' , required=true)
+
+                br
+                button.addplan(type='submit') Save
+            br
+            br
+        br
+        br
+
