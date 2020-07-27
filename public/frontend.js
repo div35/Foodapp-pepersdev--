@@ -93,7 +93,7 @@ const update_Plan = async (id, name, items, serving, price) => {
         if (res.data === "Update is successful") {
             alert("Update is successful")
             window.setTimeout(() => {
-                location.reload(true);
+                location.assign("/plans");
             }, 1000)
         }
         else {

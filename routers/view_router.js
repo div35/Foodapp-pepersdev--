@@ -21,8 +21,8 @@ viewrouter.route("/changepassword").get(protectroute, viewchangepasspage);
 viewrouter.route("/failed").get(protectroute, payment_unsuccessfulpage);
 viewrouter.route("/wishlist").get(protectroute, viewwishlistpage);
 viewrouter.route("/prevOrders").get(protectroute, vieworderspage);
-viewrouter.route("/addPlans").get(protectroute, viewaddPlan)
-viewrouter.route("/editplan/:id").get(protectroute, view_edit_plan_page)
+viewrouter.route("/addPlans").get(protectroute,authorize('admin'), viewaddPlan)
+viewrouter.route("/editplan/:id").get(protectroute,authorize('admin'), view_edit_plan_page)
 viewrouter.route("/success/:id").get(protectroute, payment_successfulpage);
 
 

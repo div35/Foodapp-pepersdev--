@@ -7,7 +7,7 @@ let userrouter = express.Router();
 userrouter.route("/getalluser").get(protectroute, authorize("admin"), getalluser);
 userrouter.route("/signup").post(signupuser);
 userrouter.route("/login").post(loginuser);
-userrouter.route("/logout").get(logoutuser);
+userrouter.route("/logout").get(protectroute,logoutuser);
 userrouter.route("/forgetpassword").post(forgetpassword);
 userrouter.route("/resetpassword").patch(resetpassword);
 userrouter.route("/changepass").patch(protectroute, changepass);
@@ -15,6 +15,6 @@ userrouter.route("/updateuser").patch(protectroute, patchuser);
 userrouter.route("/addToPrevOrder").patch(protectroute, addToOrder);
 userrouter.route("/wishlist").patch(protectroute, wishlist);
 userrouter.route("/unwishlist").patch(protectroute, unwishlist);
-userrouter.route("/:id").get(getuser).patch(patchuser);
+userrouter.route("/:id").get(protectroute,getuser).patch(protectroute,patchuser);
 
 module.exports = userrouter;

@@ -66,12 +66,12 @@ module.exports.signupuser = async (req, res) => {
             res.status(201).send("An account already exsits with this email id.");
             return;
         }
-        
-        if(req.body.password !== req.body.confirm_pass){
+
+        if (req.body.password !== req.body.confirm_pass) {
             res.status(201).send("Your Password doesn't match with Confirm Password");
             return;
         }
-        
+
         var newobj = await user.create(req.body);
 
         var token = jwt.sign({ "id": newobj._id }, "div123", { expiresIn: "10d" });
