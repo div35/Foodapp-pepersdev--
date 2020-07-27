@@ -30,8 +30,8 @@ block content
                 .name
                     .entry
                         .entry-text
-                            | Price :
-                        input(type='text' ,name='price' ,value = `${plan.price} INR` ,id = 'price' , required=true)
+                            | Price in INR :
+                        input(type='text' ,name='price' ,value = `${plan.price}` ,id = 'price' , required=true)
 
                 br
                 button.saveplan(type='submit') Save

@@ -87,8 +87,6 @@ const update = async (name, role, username, email) => {
 }
 const update_Plan = async (id, name, items, serving, price) => {
     try {
-        price = price.split(" ")[0];
-        // console.log(price);
         const data = { name, items, serving, price };
         const res = await axios.patch("/api/plan/" + id, data);
         console.log(res)
