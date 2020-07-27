@@ -274,8 +274,11 @@ module.exports.changepass = async (req, res) => {
 
             result.password = req.body.newpass;
             result.confirm_pass = req.body.confirm_pass;
-            var temp = await result.save();
-            res.status(201).send("Password changes succesfully");
+            if (result.password === result.confirm_pass) {
+                var temp = await result.save();
+                res.status(201).send("Password changes succesfully");
+            }
+            res.status(201).send("Your Password Does Not Match with Your Confirm Password");
 
         }
         else {
