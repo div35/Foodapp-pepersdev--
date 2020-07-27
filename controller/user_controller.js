@@ -53,7 +53,7 @@ module.exports.addToOrder = async function (req, res) {
         var plan_id = req.body.planId;
         var temp_plan = await plan.findById(plan_id)
         var user_detail = req.user;
-        var o_list = user_detail.wish_list;
+        var o_list = user_detail.prevOrder;
         
         o_list.push(temp_plan)
         var result = await user.findByIdAndUpdate(user_detail._id, { "prevOrder": o_list }, { new: true });
