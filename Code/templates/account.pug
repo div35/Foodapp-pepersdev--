@@ -1,0 +1,43 @@
+extends base
+
+block content
+    #login
+        br
+        br
+        #space1
+            br
+            h1 About Me
+            
+            form.user-view__content
+                .name
+                    .entry
+                        .entry-text
+                            | Name : 
+                        input(type='text' ,name='name' ,value = `${user.name}` ,id = 'name' , required=true)
+
+                .role
+                    .entry
+                        .entry-text
+                            | Role : 
+                        input(type='text' ,name='role' , value = `${user.role}` , id = 'role' , required=true)
+
+                .username
+                    .entry
+                        .entry-text
+                            | Username : 
+                        input(type='text' ,name='username' , value = `${user.username}` , id = 'username' , required=true)
+                
+                .email1
+                    .entry
+                        .entry-text
+                            | Email Id : 
+                        input(type='email' ,name='email' , value = `${user.email}` , id = 'email', required=true)
+
+                br
+                button(type='submit') Save
+            a.forget(href="/changepassword") Change Password ?
+            br
+            br
+        br
+        br
+

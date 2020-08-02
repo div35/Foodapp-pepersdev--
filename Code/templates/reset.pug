@@ -1,0 +1,27 @@
+extend base
+
+block content
+    #login
+        br
+        br
+        #space
+            br
+            h1 Reset Your Password
+
+            form.resetpass
+                .token
+                    .entry
+                        .entry-text
+                            | Token : 
+                        input(type='text' , name='token' ,placeholder='  Your Token' ,id = "token" , required=true)
+
+                .password
+                    .entry
+                        .entry-text
+                            | Password : 
+                        input(type='password' , name='password' ,placeholder='  Your New Password' ,id = "password" , required=true)
+
+                br
+                button(type='submit') Submit
+        br
+        br

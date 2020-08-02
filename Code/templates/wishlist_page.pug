@@ -1,0 +1,42 @@
+extend base
+
+block content
+    br
+    br
+    h2.subheading Your Wishlist
+
+    if temp_user.wish_list.length === 0
+       h2.space Your Wishlist is Empty 
+    else
+        #middle5
+            br
+            br
+            part
+                for plan in temp_user.wish_list
+                    part5
+                        part1
+                            part8
+                                h2 #{plan.name}
+                            part9
+                                h4.items #{plan.items}
+                            hr
+                            part2
+                                part4
+                                    i.fas.fa-check-circle
+                                    p Servings : #{plan.servings} persons
+                                part4
+                                    i.fas.fa-check-circle
+                                    p Order 24/7
+                                
+                                part4
+                                    i.fas.fa-check-circle
+                                    p Free delivery
+                                hr
+                            part3
+                                h1(style='color: rgb(8, 187, 8) ') Price :   #{plan.price}
+                                p(style='color: rgb(8, 187, 8) ')  INR
+                        .hi
+                            button.a3#unwishlist(value='#{plan.price}' data-plan-id = `${plan["_id"]}`) Delete
+                            button.a3.bookPlan#unwishbook(value='#{plan.price}' onClick="window.location.href='#plan-booking'" data-plan-id = `${plan["_id"]}`) Buy Now
+
+            

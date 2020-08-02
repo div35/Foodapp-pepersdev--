@@ -1,0 +1,42 @@
+extend base
+
+block content
+    #login
+        br
+        br
+        #space
+            br
+            h1 Edit Thali
+            
+            form.plan-view__content
+                .name
+                    .entry
+                        .entry-text
+                            | Thali Name : 
+                        input(type='text' ,name='name' ,value = `${plan.name}` ,id = 'name' , required=true)
+
+                .name
+                    .entry
+                        .entry-text
+                            | Items :
+                        input(type='text' ,name='items' ,value = `${plan.items}` ,id = 'items' , required=true)
+
+                .name
+                    .entry
+                        .entry-text
+                            | Serving :
+                        input(type='text' ,name='serving' ,value = `${plan.serving}` ,id = 'serving' , required=true)
+
+                .name
+                    .entry
+                        .entry-text
+                            | Price in INR :
+                        input(type='text' ,name='price' ,value = `${plan.price}` ,id = 'price' , required=true)
+
+                br
+                button.saveplan(type='submit') Save
+            br
+            br
+        br
+        br
+

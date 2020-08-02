@@ -1,0 +1,52 @@
+#middle5
+    br
+    br
+    h2.subheading START EATING HEALTHY TODAY
+
+    if plans.length === 0
+        h2(style="margin-left: 33rem; margin-top: 5rem; margin-bottom: 10rem") Sorry !! Currently No Thali is Available
+
+    part
+        for plan in plans
+            part5
+                part1
+                    part8
+                        h2 #{plan.name}
+                        if temp_user && temp_user.role === "admin"
+                            a(href="/editplan/" + `${plan["id"]}` )
+                                i.far.fa-edit(value='#{plan.price}' data-plan-id = `${plan["_id"]}` style="font-size: 23px; ")
+                            a
+                                i.far.fa-trash-alt(value='#{plan.price}' data-plan-id = `${plan["_id"]}` style="font-size: 23px; margin-left: 25px")
+            
+                    part9
+                        h4.items #{plan.items}
+                    hr
+                    part2
+                        part4
+                            i.fas.fa-check-circle
+                            p Serving : #{plan.serving} 
+                        part4
+                            i.fas.fa-check-circle
+                            p Order 24/7
+                        
+                        part4
+                            i.fas.fa-check-circle
+                            p Free delivery
+                        hr
+                    part3
+                        h1(style='color: rgb(8, 187, 8) ') Price :   #{plan.price}
+                        p(style='color: rgb(8, 187, 8) ')  INR
+                .hi
+                if temp_user
+                    button.a3#wishlist(value='#{plan.price}' data-plan-id = `${plan["_id"]}`) Add to Wishlist
+                    button.a3.bookPlan(value='#{plan.price}' onClick="window.location.href='#plan-booking'" data-plan-id = `${plan["_id"]}`) Buy Now
+
+                else
+                    button.a3(onClick="window.location.href='/login'") Add to Wishlist
+                    button.a3(onClick="window.location.href='/login'") Log In
+
+        if(x == 3 && plans.length > 0)             
+            a.seemore(href="/plans") See More
+        else   
+            if temp_user && temp_user.role === "admin"
+                a.addmore(href="/addPlans") Add More Plans
