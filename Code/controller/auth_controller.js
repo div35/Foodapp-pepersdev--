@@ -35,7 +35,7 @@ module.exports.loginuser = async (req, res) => {
 
     }
     catch (err) {
-        res.send(err);
+        res.status(200).send("Error!!! Please try again later.");
     }
 }
 
@@ -86,7 +86,7 @@ module.exports.signupuser = async (req, res) => {
         res.status(200).send("You Signedup Successfully");
     }
     catch (err) {
-        res.status(401).send(err);
+        res.status(200).send("Error!!! Please try again later.");
     };
 
 }
@@ -125,7 +125,7 @@ module.exports.protectroute = async (req, res, next) => {
         next();
     }
     catch (err) {
-        res.status(401).send(err);
+        res.status(200).send("Error!!! Please try again later.");
     }
 };
 
@@ -164,7 +164,7 @@ module.exports.isloggedin = async (req, res, next) => {
 
     }
     catch (err) {
-        res.status(401).send(err);
+        res.status(200).send("Error!!! Please try again later.");
     }
 };
 
@@ -225,28 +225,33 @@ module.exports.forgetpassword = async (req, res) => {
         });
         res.send("Token was sent successfully to you email address");
     } catch (err) {
-        res.status(401).send(err);
+        res.status(200).send("Error!!! Please try again later.");
     }
 
 }
 
 module.exports.resetpassword = async (req, res) => {
-    // 1. get token from user
-    // console.log(req.body.token);
-    // console.log(req.body.password);
-    var person = await user.findOne({ reset_token: req.body.token });
-    if (!person) {
-        res.end("Token is invalid");
+    try {
+        // 1. get token from user
+        // console.log(req.body.token);
+        // console.log(req.body.password);
+        var person = await user.findOne({ reset_token: req.body.token });
+        if (!person) {
+            res.end("Token is invalid");
+        }
+        // console.log(req.headers);
+        // console.log(req.body);
+        // 2. update password
+        var pass = req.body.password;
+        // console.log(pass);
+        person.password = pass;
+        person.reset_token = undefined;
+        await person.save({ validatebeforesave: false });
+        res.status(201).send("Password changes succesfully");
     }
-    // console.log(req.headers);
-    // console.log(req.body);
-    // 2. update password
-    var pass = req.body.password;
-    // console.log(pass);
-    person.password = pass;
-    person.reset_token = undefined;
-    await person.save({ validatebeforesave: false });
-    res.status(201).send("Password changes succesfully");
+    catch (err) {
+        res.status(200).send("Error!!! Please try again later.");
+    }
 
 }
 
@@ -285,6 +290,6 @@ module.exports.changepass = async (req, res) => {
             return res.status(201).send("You are not logged in");
         }
     } catch (err) {
-        res.status(401).send(err);
+        res.status(200).send("Error!!! Please try again later.");
     }
 }

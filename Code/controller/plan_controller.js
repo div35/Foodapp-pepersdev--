@@ -54,7 +54,7 @@ module.exports.getallplan = async function (req, res) {
         })
     }
     catch (err) {
-        res.status(400).send(err);
+        res.status(200).send("Error!!! Please try again later.");
     }
 }
 
@@ -70,7 +70,7 @@ module.exports.getplan = async function (req, res) {
     }
 
     catch (err) {
-        res.status(401).send(err);
+        res.status(200).send("Error!!! Please try again later.");
     }
 };
 
@@ -80,7 +80,7 @@ module.exports.postplan = async function (req, res) {
         res.status(200).send("Plan Added Successfully");
     }
     catch (err) {
-        res.status(401).send(err);
+        res.status(200).send("Error!!! Please try again later.");
     };
 };
 
@@ -92,7 +92,7 @@ module.exports.patchplan = async function (req, res) {
         res.status(200).send("Update is successful");
     }
     catch (err) {
-        res.status(401).send(err);
+        res.status(200).send("Error!!! Please try again later.");
     }
 };
 
@@ -106,6 +106,6 @@ module.exports.deleteplan = async function (req, res) {
         }
     }
     catch (err) {
-        res.status(401).send(err);
+        res.status(200).send("Error!!! Please try again later.");
     }
 }

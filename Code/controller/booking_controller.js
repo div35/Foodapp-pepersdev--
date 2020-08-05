@@ -29,6 +29,6 @@ module.exports.getcheckout = async (req, res) => {
         })
     }
     catch (err) {
-        res.status(401).send(err);
+        res.status(200).send("Error!!! Please try again later.");
     }
 }

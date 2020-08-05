@@ -13,7 +13,7 @@ module.exports.getalluser = async function (req, res) {
         })
     }
     catch (err) {
-        res.status(401).send(err);
+        res.status(200).send("Error!!! Please try again later.");
     }
 }
 module.exports.getuser = async function (req, res) {
@@ -27,7 +27,7 @@ module.exports.getuser = async function (req, res) {
         });
     }
     catch (err) {
-        res.status(401).send(err);
+        res.status(200).send("Error!!! Please try again later.");
     }
 };
 
@@ -44,7 +44,7 @@ module.exports.patchuser = async function (req, res) {
         });
     }
     catch (err) {
-        res.status(401).send(err);
+        res.status(200).send("Error!!! Please try again later.");
     }
 };
 
@@ -60,7 +60,7 @@ module.exports.addToOrder = async function (req, res) {
         res.status(200).send("This Product is Successfully added to your OrdersList")
     }
     catch (err) {
-        res.status(401).send(err);
+        res.status(200).send("Error!!! Please try again later.");
     }
 }
 
@@ -86,7 +86,7 @@ module.exports.wishlist = async function (req, res) {
         res.status(200).send("This Product is Successfully added to your Wishlist")
     }
     catch (err) {
-        res.status(401).send(err);
+        res.status(200).send("Error!!! Please try again later.");
     }
 }
 
@@ -107,6 +107,6 @@ module.exports.unwishlist = async function (req, res) {
         res.status(200).send("This Product is Successfully delete from your Wishlist")
     }
     catch (err) {
-        res.status(401).send(err);
+        res.status(200).send("Error!!! Please try again later.");
     }
 }
