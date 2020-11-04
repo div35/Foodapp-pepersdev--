@@ -1,6 +1,6 @@
 var user = require("./../model/user_model");
 var jwt = require("jsonwebtoken");
-var bcrypt = require("bcrypt");
+var bcrypt = require("bcryptjs");
 var crypto = require("crypto")
 var { send_email } = require("./../utility/email");
 

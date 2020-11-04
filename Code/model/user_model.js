@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");// Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment.
 const { db } = require("./../credential")
 const validator = require("validator");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 //request
 mongoose.connect(db, {
