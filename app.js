@@ -7,11 +7,13 @@ const userrouter = require("./routers/user_router");
 const planrouter = require("./routers/plan_router");
 const viewrouter = require("./routers/view_router");
 const bookingrouter = require("./routers/booking_router");
+const cors = require('cors')
 
 const server = express(); //Server is ready
 
 server.use(express.json()); //method inbuilt in express to recognize the incoming Request Object as a JSON Object.
 server.use(express.static("public"));
+server.use(cors());
 server.use('/success', express.static('public'))
 server.use('/editplan', express.static('public'))
 
