@@ -180,7 +180,7 @@ const change = async (oldpass, newpass, confirm_pass) => {
 
 const bookPlan = async planId => {
     try {
-        const session = await axios(`http://localhost:3000/api/bookings/checkout-session/${planId}`);
+        const session = await axios(`/api/bookings/checkout-session/${planId}`);
         await stripe.redirectToCheckout({
             sessionId: session.data.session.id
         });
@@ -191,7 +191,7 @@ const bookPlan = async planId => {
 
 const add_to_prevOrder = async planId => {
     try {
-        const res = await axios.patch("http://localhost:3000/api/user/addToPrevOrder", { "planId": planId });
+        const res = await axios.patch("/api/user/addToPrevOrder", { "planId": planId });
         location.assign("/");
     }
     catch (err) {
@@ -201,7 +201,7 @@ const add_to_prevOrder = async planId => {
 
 const add_to_wishlist = async planId => {
     try {
-        const res = await axios.patch("http://localhost:3000/api/user/wishlist", { "planId": planId });
+        const res = await axios.patch("/api/user/wishlist", { "planId": planId });
 
         alert(res.data);
         if (res.data === "This Product is Successfully added to your Wishlist")
@@ -214,7 +214,7 @@ const add_to_wishlist = async planId => {
 
 const delete_from_wishlist = async planId => {
     try {
-        const res = await axios.patch("http://localhost:3000/api/user/unwishlist", { "planId": planId });
+        const res = await axios.patch("/api/user/unwishlist", { "planId": planId });
 
         alert(res.data);
         location.assign("/wishlist");
@@ -227,7 +227,7 @@ const delete_from_wishlist = async planId => {
 const delete_plan = async planId => {
     try {
         alert("Are You Sure To Delete This Plan")
-        const res = await axios.delete("http://localhost:3000/api/plan/deletePlan", { data: { "id": planId } });
+        const res = await axios.delete("/api/plan/deletePlan", { data: { "id": planId } });
 
         alert(res.data);
         location.reload(true);
