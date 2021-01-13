@@ -152,6 +152,7 @@ const sign = async (name, role, username, email, password, confirm_pass) => {
             }, 1000)
         }
         else {
+            console.log(res)
             alert(res.data);
         }
     } catch (err) {
