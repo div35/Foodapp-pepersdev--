@@ -153,7 +153,7 @@ const sign = async (name, role, username, email, password, confirm_pass) => {
         }
         else {
             console.log(res)
-            alert(res.data);
+            alert("Error!! Pls try again later!!!");
         }
     } catch (err) {
         console.log(err);
