@@ -86,7 +86,7 @@ module.exports.signupuser = async (req, res) => {
         res.status(200).send("You Signedup Successfully");
     }
     catch (err) {
-        res.status(200).send("Error!!! Please try again later.");
+        res.status(200).send(err);
     };
 
 }
